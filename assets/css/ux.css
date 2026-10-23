@@ -1,0 +1,108 @@
+/* ===== Confort de lecture et d'utilisation (jeunes comme seniors) ===== */
+:root { --bs-primary: #0b4f9c; --bs-primary-rgb: 11, 79, 156; --bs-link-color: #0b4f9c; --bs-link-hover-color: #083d78; }
+[data-bs-theme="dark"] { --bs-link-color: #7db7ff; --bs-link-hover-color: #a8cfff; }
+
+html { scroll-behavior: smooth; }
+body { font-size: 1.125rem; line-height: 1.6; }
+h1, h2, h3 { line-height: 1.25; }
+section { scroll-margin-top: 5.5rem; }
+
+/* Boutons et champs : grandes zones de clic */
+.btn { min-height: 3rem; padding: .6rem 1.25rem; font-weight: 600; }
+.btn-lg { min-height: 3.5rem; font-size: 1.2rem; }
+.btn-primary { --bs-btn-bg: #0b4f9c; --bs-btn-border-color: #0b4f9c; --bs-btn-hover-bg: #083d78; --bs-btn-hover-border-color: #083d78; --bs-btn-active-bg: #083d78; --bs-btn-active-border-color: #083d78; --bs-btn-disabled-bg: #0b4f9c; --bs-btn-disabled-border-color: #0b4f9c; }
+.btn-outline-primary { --bs-btn-color: #0b4f9c; --bs-btn-border-color: #0b4f9c; --bs-btn-hover-bg: #0b4f9c; --bs-btn-hover-border-color: #0b4f9c; --bs-btn-active-bg: #0b4f9c; }
+[data-bs-theme="dark"] .btn-outline-primary { --bs-btn-color: #7db7ff; --bs-btn-border-color: #7db7ff; --bs-btn-hover-color: #000; --bs-btn-hover-bg: #7db7ff; }
+.form-control, .form-select { min-height: 3rem; font-size: 1.05rem; }
+.form-label { font-weight: 600; }
+.form-text { font-size: .95rem; }
+.form-check-input { width: 1.4em; height: 1.4em; }
+.form-check-label { padding-left: .35rem; }
+
+/* Focus bien visible (navigation au clavier) */
+:focus-visible { outline: 3px solid #ffbf00 !important; outline-offset: 2px; }
+.skip-link { position: absolute; left: -999px; top: 0; z-index: 2000; background: #ffbf00; color: #000; padding: .75rem 1rem; font-weight: 700; }
+.skip-link:focus { left: 0; }
+
+/* Barre d'outils : taille du texte, mode sombre, aide */
+.topbar { background: #eef2f8; font-size: .95rem; }
+[data-bs-theme="dark"] .topbar { background: #1c2128; }
+.topbar .btn { min-height: 2.25rem; padding: .15rem .8rem; }
+.nav-link { padding: .75rem 1rem !important; font-size: 1.05rem; }
+
+/* Accueil */
+.hero { background: linear-gradient(135deg, #0b4f9c, #0a3a73); color: #fff; }
+.etape { width: 3rem; height: 3rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--bs-primary); color: #fff; font-weight: 700; font-size: 1.3rem; flex-shrink: 0; }
+
+/* Estimation en direct */
+.panneau { top: 5.5rem; }
+.estimation { font-size: 2.25rem; font-weight: 700; color: var(--bs-primary); }
+[data-bs-theme="dark"] .estimation { color: #7db7ff; }
+
+/* Select2 / DataTables adaptés */
+.select2-container--bootstrap-5 .select2-selection { min-height: 3rem; font-size: 1.05rem; display: flex; align-items: center; }
+select.is-invalid + .select2 .select2-selection { border-color: #dc3545; }
+.dataTables_wrapper input, .dataTables_wrapper select { min-height: 2.5rem; }
+.page-link { min-width: 2.75rem; min-height: 2.75rem; display: inline-flex; align-items: center; justify-content: center; }
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* ===================== Design vivant : images, animations ===================== */
+@keyframes monte { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: none; } }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 193, 7, .6); } 70% { box-shadow: 0 0 0 16px rgba(255, 193, 7, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); } }
+@keyframes saute { 0%, 100% { transform: translateY(0); } 40% { transform: translateY(-8px); } 70% { transform: translateY(2px); } }
+
+/* Apparition au défilement (seulement si JavaScript actif) */
+.js .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+.js .reveal.visible { opacity: 1; transform: none; }
+
+/* Grand slider d'accueil */
+.hero-slider .carousel-item { height: min(80vh, 660px); min-height: 460px; background: #05142d; }
+.hero-slider .carousel-item > img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.12); transition: transform 7s ease-out; }
+.hero-slider .carousel-item.active > img { transform: scale(1); }
+.hero-slider .overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5, 20, 45, .88) 0%, rgba(5, 20, 45, .5) 55%, rgba(5, 20, 45, .1) 100%); }
+.hero-slider .caption { position: absolute; inset: 0; display: flex; align-items: center; color: #fff; text-shadow: 0 2px 12px rgba(0, 0, 0, .5); }
+.hero-slider .caption .container > * { opacity: 0; }
+.hero-slider .carousel-item.active .caption .container > * { animation: monte .9s ease both; }
+.hero-slider .carousel-item.active .caption .container > :nth-child(2) { animation-delay: .15s; }
+.hero-slider .carousel-item.active .caption .container > :nth-child(3) { animation-delay: .3s; }
+.hero-slider .carousel-item.active .caption .container > :nth-child(4) { animation-delay: .45s; }
+.hero-slider .carousel-control-prev, .hero-slider .carousel-control-next { width: 8%; }
+.hero-slider .carousel-indicators [data-bs-target] { width: 14px; height: 14px; border-radius: 50%; }
+.btn-pulse { animation: pulse 2.4s infinite; }
+
+/* Tuiles des types de voitures */
+.tuile { position: relative; display: block; height: 280px; overflow: hidden; border-radius: 1.25rem; color: #fff; text-decoration: none; box-shadow: 0 .5rem 1.25rem rgba(0, 0, 0, .18); }
+.tuile img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.tuile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(5, 20, 45, .85), transparent 60%); }
+.tuile-texte { position: absolute; left: 1.25rem; bottom: 1rem; z-index: 2; display: flex; flex-direction: column; text-shadow: 0 2px 8px rgba(0, 0, 0, .6); }
+.tuile:hover img, .tuile:focus-visible img { transform: scale(1.12); }
+.tuile:hover { color: #fff; }
+
+/* Étapes */
+.etape-carte { transition: transform .3s ease, box-shadow .3s ease; }
+.etape-carte:hover { transform: translateY(-8px); box-shadow: 0 1rem 2rem rgba(0, 0, 0, .15); }
+.etape-carte:hover .bi { display: inline-block; animation: saute .6s; }
+
+/* Tableau affiché en cartes (DataTables garde recherche, tri et pagination) */
+table.cartes, table.cartes tbody { display: block; width: 100%; border: 0; }
+table.cartes thead { display: none; }
+table.cartes tbody { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }
+table.cartes tbody tr { display: flex; flex-direction: column; overflow: hidden; border-radius: 1.25rem; background: var(--bs-body-bg); border: 1px solid var(--bs-border-color); box-shadow: 0 .25rem 1rem rgba(0, 0, 0, .1); transition: transform .3s ease, box-shadow .3s ease; animation: monte .6s ease both; }
+table.cartes tbody tr:hover { transform: translateY(-8px); box-shadow: 0 1.25rem 2.25rem rgba(0, 0, 0, .22); }
+table.cartes td { display: block; border: 0 !important; padding: .15rem 1.25rem !important; background: transparent !important; box-shadow: none !important; }
+table.cartes td.c-img { order: -4; padding: 0 !important; height: 180px; overflow: hidden; }
+table.cartes td.c-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+table.cartes tr:hover td.c-img img { transform: scale(1.1); }
+table.cartes td.c-nom { order: -3; font-size: 1.3rem; font-weight: 700; padding-top: 1rem !important; }
+table.cartes td.c-cat { order: -2; color: var(--bs-secondary-color); text-transform: uppercase; font-size: .85rem; letter-spacing: .05em; }
+table.cartes td.c-cv { order: -1; color: var(--bs-secondary-color); }
+table.cartes td.c-prix { order: 0; font-size: 1.5rem; font-weight: 700; color: var(--bs-primary); padding-top: .5rem !important; }
+[data-bs-theme="dark"] table.cartes td.c-prix { color: #7db7ff; }
+table.cartes td.c-dispo { order: 1; }
+table.cartes td.c-act { order: 2; padding: .75rem 1.25rem 1.25rem !important; margin-top: auto; }
+table.cartes td.dataTables_empty { padding: 2rem !important; text-align: center; grid-column: 1 / -1; }
+
+.bandeau { background: linear-gradient(135deg, #0b4f9c, #0a3a73); }

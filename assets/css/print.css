@@ -1,0 +1,7 @@
+@media print {
+    .no-print, nav, footer { display: none !important; }
+    :root, [data-bs-theme] { --bs-body-bg: #fff; --bs-body-color: #000; --bs-card-bg: #fff; --bs-border-color: #000; }
+    body { background: #fff !important; color: #000 !important; }
+    .card { border: 1px solid #000 !important; box-shadow: none !important; }
+    main { max-width: 100% !important; }
+}

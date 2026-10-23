@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue — Auto Rent</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="assets/css/ux.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
+    <script src="assets/js/ux.js"></script>
+</head>
+
+<body>
+    <a class="skip-link no-print" href="#contenu">Aller au contenu principal</a>
+
+    <div class="topbar no-print">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2 py-2">
+            <span>Besoin d'aide ? <a href="tel:+21600000000" class="fw-bold">+216 00 000 000</a></span>
+            <div class="d-flex flex-wrap align-items-center gap-2">
+                <span>Taille du texte :</span>
+                <button id="textMinus" type="button" class="btn btn-outline-secondary btn-sm" aria-label="Réduire la taille du texte">A−</button>
+                <button id="textPlus" type="button" class="btn btn-outline-secondary btn-sm" aria-label="Agrandir la taille du texte">A+</button>
+                <button id="themeToggle" type="button" class="btn btn-outline-secondary btn-sm"></button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top no-print" aria-label="Menu principal">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="index3.html"><i class="bi bi-car-front-fill me-2"></i>AUTO RENT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-label="Ouvrir le menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="index3.html"><i class="bi bi-house me-2"></i>Accueil</a></li><li class="nav-item"><a class="nav-link active" aria-current="page" href="catalogue.html"><i class="bi bi-car-front me-2"></i>Catalogue</a></li><li class="nav-item"><a class="nav-link" href="index3.html#reservation"><i class="bi bi-calendar-check me-2"></i>Réserver</a></li><li class="nav-item"><a class="nav-link" href="devis.html"><i class="bi bi-file-earmark-text me-2"></i>Mon devis</a></li><li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-telephone me-2"></i>Contact</a></li></ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <main id="contenu" tabindex="-1" class="container my-5">
+        <div class="bandeau text-white rounded-4 p-4 p-md-5 mb-4">
+            <h1 class="display-5 fw-bold mb-2">Toutes nos voitures</h1>
+            <p class="fs-5 mb-0">Trouvez votre voiture, puis cliquez sur « Réserver ». <strong><span id="nbVehicules">0</span> voitures</strong> dans notre catalogue.</p>
+        </div>
+
+        <div id="erreur" class="alert alert-danger d-none" role="alert">
+            Le catalogue ne peut pas s'afficher. Ouvrez le site avec un serveur local
+            (extension <strong>Live Server</strong> de VS Code, ou <code>python -m http.server</code>)
+            ou depuis GitHub Pages : <code>fetch()</code> ne marche pas avec un double-clic (file://).
+        </div>
+
+        <div id="zoneCatalogue">
+            <div class="card mb-4"><div class="card-body p-4">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-6">
+                        <label for="filtreCat" class="form-label">Type de voiture</label>
+                        <select id="filtreCat" class="form-select">
+                            <option value="">Tous les types</option>
+                            <option>Citadine</option><option>Berline</option><option>Commerciale</option><option>SUV</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="filtrePrix" class="form-label">Mon budget</label>
+                        <select id="filtrePrix" class="form-select">
+                            <option value="9999">Tous les prix</option>
+                            <option value="120">Jusqu'à 120 DT par jour</option>
+                            <option value="150">Jusqu'à 150 DT par jour</option>
+                            <option value="200">Jusqu'à 200 DT par jour</option>
+                            <option value="250">Jusqu'à 250 DT par jour</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="tri" class="form-label">Trier par</label>
+                        <select id="tri" class="form-select">
+                            <option value="">Ordre habituel</option>
+                            <option value="3,asc">Prix : du moins cher au plus cher</option>
+                            <option value="3,desc">Prix : du plus cher au moins cher</option>
+                            <option value="1,asc">Nom : A → Z</option>
+                            <option value="2,desc">Puissance : la plus forte</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-check form-switch mb-0">
+                            <input class="form-check-input" type="checkbox" id="filtreDispo">
+                            <label class="form-check-label" for="filtreDispo">Seulement les voitures disponibles</label>
+                        </div>
+                    </div>
+                </div>
+            </div></div>
+
+            <table id="tableVehicules" class="cartes">
+                <caption class="visually-hidden">Liste des voitures à louer</caption>
+                <thead><tr><th>Type</th><th>Voiture</th><th>Puissance</th><th>Prix / jour</th><th>Disponibilité</th><th>Action</th><th>Photo</th></tr></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </main>
+
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-1 fs-5">Une question ? Appelez-nous : <a href="tel:+21600000000" class="text-white fw-bold">+216 00 000 000</a></p>
+            <p class="mb-0 small">© 2026 Auto Rent — Agence de location de voitures</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
+    <script src="assets/js/datatables-fr.js"></script>
+    <script src="assets/js/catalogue.js"></script>
+</body>
+
+</html>

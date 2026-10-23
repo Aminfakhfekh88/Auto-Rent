@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Rent - Location de voitures (Bootstrap)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#accueil">AUTO RENT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#accueil">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#categories">Catégories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#catalogue">Catalogue</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#prix">Prix</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reservation">Réservation</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Accueil -->
+    <header id="accueil" class="bg-dark text-white text-center py-5">
+        <div class="container">
+            <h1 class="display-4 fw-bold">AUTO RENT</h1>
+            <p class="lead mb-0">
+                Des voitures adaptées à vos besoins pour vos déplacements
+                professionnels ou personnels.
+            </p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+
+        <!-- Catégories : Carousel de Cards -->
+        <section id="categories" class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="mb-0">Nos catégories</h2>
+                <div>
+                    <button class="btn btn-outline-dark" type="button" data-bs-target="#carouselCategories"
+                        data-bs-slide="prev" aria-label="Précédent">&#8249;</button>
+                    <button class="btn btn-outline-dark" type="button" data-bs-target="#carouselCategories"
+                        data-bs-slide="next" aria-label="Suivant">&#8250;</button>
+                </div>
+            </div>
+
+            <div id="carouselCategories" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card mb-3">
+                            <div class="row g-0">
+                                <div class="col-md-5">
+                                    <div class="ratio ratio-4x3">
+                                        <img src="https://images.unsplash.com/photo-1749840705747-21cc842efab8?w=800&q=80&auto=format&fit=crop" class="object-fit-cover rounded-start"
+                                            alt="Voiture citadine">
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="card-body d-flex flex-column justify-content-center h-100">
+                                        <h3 class="card-title">Citadine</h3>
+                                        <p class="card-text">Des voitures compactes et économiques, idéales pour les déplacements en ville.</p>
+                                        <div><a href="#reservation" class="btn btn-primary">Réserver</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card mb-3">
+                            <div class="row g-0">
+                                <div class="col-md-5">
+                                    <div class="ratio ratio-4x3">
+                                        <img src="https://images.unsplash.com/photo-1565429504749-436a49cd9f45?w=800&q=80&auto=format&fit=crop" class="object-fit-cover rounded-start"
+                                            alt="Voiture berline">
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="card-body d-flex flex-column justify-content-center h-100">
+                                        <h3 class="card-title">Berline</h3>
+                                        <p class="card-text">Des voitures confortables adaptées aux longs trajets.</p>
+                                        <div><a href="#reservation" class="btn btn-primary">Réserver</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card mb-3">
+                            <div class="row g-0">
+                                <div class="col-md-5">
+                                    <div class="ratio ratio-4x3">
+                                        <img src="https://images.unsplash.com/photo-1579992822406-2092a7bd5a36?w=800&q=80&auto=format&fit=crop" class="object-fit-cover rounded-start"
+                                            alt="Voiture commerciale">
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="card-body d-flex flex-column justify-content-center h-100">
+                                        <h3 class="card-title">Commerciale</h3>
+                                        <p class="card-text">Des véhicules adaptés au transport de marchandises.</p>
+                                        <div><a href="#reservation" class="btn btn-primary">Réserver</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card mb-3">
+                            <div class="row g-0">
+                                <div class="col-md-5">
+                                    <div class="ratio ratio-4x3">
+                                        <img src="https://images.unsplash.com/photo-1506244856291-8910ea843e81?w=800&q=80&auto=format&fit=crop" class="object-fit-cover rounded-start"
+                                            alt="Voiture suv">
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="card-body d-flex flex-column justify-content-center h-100">
+                                        <h3 class="card-title">SUV</h3>
+                                        <p class="card-text">Des véhicules spacieux et polyvalents, pour la route comme pour les chemins.</p>
+                                        <div><a href="#reservation" class="btn btn-primary">Réserver</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catalogue -->
+        <section id="catalogue" class="mb-5">
+            <h2 class="mb-3">Catalogue des véhicules</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-bordered align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Catégorie</th>
+                            <th>Véhicule</th>
+                            <th>Puissance</th>
+                            <th>Prix / jour</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Citadine</td>
+                            <td>Renault Clio</td>
+                            <td>90 CV</td>
+                            <td>120 DT</td>
+                        </tr>
+                        <tr>
+                            <td>Citadine</td>
+                            <td>Peugeot 208</td>
+                            <td>100 CV</td>
+                            <td>130 DT</td>
+                        </tr>
+                        <tr>
+                            <td>Citadine</td>
+                            <td>Fiat 500</td>
+                            <td>70 CV</td>
+                            <td>110 DT</td>
+                        </tr>
+                        <tr>
+                            <td>Citadine</td>
+                            <td>Kia Picanto</td>
+                            <td>84 CV</td>
+                            <td>100 DT</td>
+                        </tr>
+                        <tr>
+                            <td>Berline</td>
+                            <td>Peugeot 508</td>
+                            <td>130 CV</td>
+                            <td>180 DT</td>
+                        </tr>
+                        <tr>
+                            <td>Berline</td>
+                            <td>Volkswagen Passat</td>
+                            <td>150 CV</td>
+                            <td>200 DT</td>
+                        </tr>
+                        <tr>
+                            <td>Berline</td>
+                            <td>Toyota Corolla</td>
+                            <td>140 CV</td>
+                            <td>170 DT</td>
+                        </tr>
+                        <tr>
+                            <td>Commerciale</td>
+                            <td>Renault Kangoo</td>
+                            <td>95 CV</td>
+                            <td>150 DT</td>
+                        </tr>
+                        <tr>
+                            <td>Commerciale</td>
+                            <td>Peugeot Partner</td>
+                            <td>100 CV</td>
+                            <td>155 DT</td>
+                        </tr>
+                        <tr>
+                            <td>Commerciale</td>
+                            <td>Citroën Berlingo</td>
+                            <td>100 CV</td>
+                            <td>150 DT</td>
+                        </tr>
+                        <tr>
+                            <td>SUV</td>
+                            <td>Dacia Duster</td>
+                            <td>115 CV</td>
+                            <td>160 DT</td>
+                        </tr>
+                        <tr>
+                            <td>SUV</td>
+                            <td>Kia Sportage</td>
+                            <td>140 CV</td>
+                            <td>210 DT</td>
+                        </tr>
+                        <tr>
+                            <td>SUV</td>
+                            <td>Hyundai Tucson</td>
+                            <td>150 CV</td>
+                            <td>220 DT</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Prix -->
+        <section id="prix" class="mb-5">
+            <h2 class="mb-3">Prix</h2>
+            <div class="alert alert-info mb-0">
+                Les prix sont calculés en fonction du véhicule choisi
+                et du nombre de jours de location.
+            </div>
+        </section>
+
+        <!-- Réservation -->
+        <section id="reservation">
+            <h2 class="mb-3">Réservation</h2>
+
+            <div class="card">
+                <div class="card-body">
+                    <form id="reservationForm">
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                <label for="nom" class="form-label">Nom et prénom</label>
+                                <input type="text" class="form-control" id="nom">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="telephone" class="form-label">Téléphone</label>
+                                <input type="tel" class="form-control" id="telephone">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="categorie" class="form-label">Catégorie</label>
+                                <select class="form-select" id="categorie">
+                                    <option value="">-- Sélectionner --</option>
+                                    <option value="citadine">Citadine</option>
+                                    <option value="berline">Berline</option>
+                                    <option value="commerciale">Commerciale</option>
+                                    <option value="suv">SUV</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="voiture" class="form-label">Voiture</label>
+                                <select class="form-select" id="voiture">
+                                    <option value="">-- Sélectionner --</option>
+                                    <option value="120" data-cat="citadine">Renault Clio</option>
+                                    <option value="130" data-cat="citadine">Peugeot 208</option>
+                                    <option value="110" data-cat="citadine">Fiat 500</option>
+                                    <option value="100" data-cat="citadine">Kia Picanto</option>
+                                    <option value="180" data-cat="berline">Peugeot 508</option>
+                                    <option value="200" data-cat="berline">Volkswagen Passat</option>
+                                    <option value="170" data-cat="berline">Toyota Corolla</option>
+                                    <option value="150" data-cat="commerciale">Renault Kangoo</option>
+                                    <option value="155" data-cat="commerciale">Peugeot Partner</option>
+                                    <option value="150" data-cat="commerciale">Citroën Berlingo</option>
+                                    <option value="160" data-cat="suv">Dacia Duster</option>
+                                    <option value="210" data-cat="suv">Kia Sportage</option>
+                                    <option value="220" data-cat="suv">Hyundai Tucson</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="prixTotal" class="form-label">Prix estimé</label>
+                                <input type="text" class="form-control" id="prixTotal" readonly>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="dateDebut" class="form-label">Date de début</label>
+                                <input type="date" class="form-control" id="dateDebut">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="dateFin" class="form-label">Date de fin</label>
+                                <input type="date" class="form-control" id="dateFin">
+                            </div>
+
+                            <div class="col-12">
+                                <button type="button" class="btn btn-outline-primary" onclick="calculerPrix()">
+                                    Calculer le prix
+                                </button>
+                                <button type="submit" class="btn btn-primary">Réserver</button>
+                            </div>
+
+                            <div class="col-12">
+                                <p id="message" class="text-danger fw-bold mb-0"></p>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">© 2026 Auto Rent - Agence de location de voitures</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Liste des voitures filtrée selon la catégorie choisie
+        var selectVoiture = document.getElementById("voiture");
+        var toutes = Array.from(selectVoiture.options).slice(1);
+
+        document.getElementById("categorie").addEventListener("change", function () {
+            var cat = this.value;
+            selectVoiture.length = 1;
+            toutes.forEach(function (opt) {
+                if (cat === "" || opt.dataset.cat === cat) selectVoiture.add(opt);
+            });
+            document.getElementById("prixTotal").value = "";
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+id,category,brand,model,power,pricePerDay,available
+1,Citadine,Renault,Clio,90,120,true
+2,Citadine,Peugeot,208,100,130,true
+3,Citadine,Fiat,500,70,110,false
+4,Citadine,Kia,Picanto,84,100,true
+5,Citadine,Hyundai,i10,87,100,true
+6,Citadine,Citroën,C3,83,110,true
+7,Citadine,Toyota,Yaris,100,125,true
+8,Citadine,Seat,Ibiza,95,125,true
+9,Citadine,Volkswagen,Polo,95,130,true
+10,Citadine,Opel,Corsa,100,125,false
+11,Citadine,Dacia,Sandero,90,95,true
+12,Citadine,Suzuki,Swift,90,115,true
+13,Citadine,Skoda,Fabia,95,120,true
+14,Citadine,Ford,Fiesta,100,125,true
+15,Citadine,Nissan,Micra,92,115,true
+16,Citadine,Mini,Cooper,136,180,true
+17,Berline,Peugeot,508,130,180,false
+18,Berline,Volkswagen,Passat,150,200,true
+19,Berline,Toyota,Corolla,140,170,true
+20,Berline,Renault,Talisman,160,190,true
+21,Berline,Skoda,Octavia,150,175,true
+22,Berline,Skoda,Superb,190,230,true
+23,Berline,Hyundai,Elantra,123,150,true
+24,Berline,Kia,K5,160,200,false
+25,Berline,Mazda,3,122,165,true
+26,Berline,Honda,Civic,129,175,true
+27,Berline,Ford,Mondeo,150,195,true
+28,Berline,Opel,Insignia,170,205,true
+29,Berline,Citroën,C5 X,130,185,true
+30,Berline,Audi,A4,150,280,true
+31,Berline,BMW,Série 3,184,320,false
+32,Berline,Mercedes,Classe C,170,330,true
+33,Commerciale,Renault,Kangoo,95,150,true
+34,Commerciale,Peugeot,Partner,100,155,true
+35,Commerciale,Citroën,Berlingo,100,150,true
+36,Commerciale,Renault,Trafic,120,220,true
+37,Commerciale,Peugeot,Expert,120,225,true
+38,Commerciale,Citroën,Jumpy,120,220,false
+39,Commerciale,Ford,Transit Custom,130,240,true
+40,Commerciale,Volkswagen,Caddy,102,165,true
+41,Commerciale,Fiat,Doblo,100,150,true
+42,Commerciale,Fiat,Ducato,140,270,true
+43,Commerciale,Renault,Master,135,260,true
+44,Commerciale,Mercedes,Vito,136,280,true
+45,SUV,Dacia,Duster,115,160,false
+46,SUV,Kia,Sportage,140,210,true
+47,SUV,Hyundai,Tucson,150,220,true
+48,SUV,Peugeot,3008,130,215,true
+49,SUV,Peugeot,2008,100,170,true
+50,SUV,Renault,Captur,90,165,true
+51,SUV,Renault,Kadjar,140,195,true
+52,SUV,Nissan,Qashqai,140,210,false
+53,SUV,Toyota,RAV4,175,260,true
+54,SUV,Volkswagen,Tiguan,150,250,true
+55,SUV,Skoda,Kodiaq,150,255,true
+56,SUV,Seat,Ateca,150,215,true
+57,SUV,Ford,Kuga,150,230,true
+58,SUV,Mazda,CX-5,165,245,true
+59,SUV,Jeep,Compass,150,240,false
+60,SUV,Citroën,C5 Aircross,130,205,true
